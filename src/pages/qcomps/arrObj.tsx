@@ -10,8 +10,9 @@ const initialList = [
 
 export default function BucketList() {
   const [myList, setMyList] = useState(initialList);
+  // Create a deep clone of the initial state so you can maintain the same logic for the remainder of the functions.
   const [yourList, setYourList] = useState(
-    initialList
+    structuredClone(initialList)
   );
 
   function handleToggleMyList(artworkId: number, nextSeen: boolean) {

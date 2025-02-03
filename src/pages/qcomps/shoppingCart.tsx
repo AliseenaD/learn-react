@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
 export default function RequestTracker() {
-  const [pending, setPending] = useState(0);
-  const [completed, setCompleted] = useState(0);
+  const [pending, setPending] = useState<number>(0);
+  const [completed, setCompleted] = useState<number>(0);
 
   async function handleClick() {
-    setPending(pending + 1);
+    setPending(prev => prev + 1);
     await delay(3000);
-    setPending(pending - 1);
-    setCompleted(completed + 1);
+    setPending(prev => prev - 1);
+    setCompleted(prev => prev + 1);
   }
 
   return (

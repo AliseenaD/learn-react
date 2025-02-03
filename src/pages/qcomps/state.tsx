@@ -6,7 +6,15 @@ export default function Gallery() {
   const [showMore, setShowMore] = useState(false);
 
   function handleNextClick() {
-    setIndex(index + 1);
+    // If the index has reached the end of the sculpture list then just return back to zero
+    if (index === sculptureList.length - 1) {
+      setIndex(0);
+    }
+    else {
+      setIndex(index + 1);
+    }
+    // Reset showmore to false every time a new picture is loaded
+    setShowMore(false);
   }
 
   function handleMoreClick() {
